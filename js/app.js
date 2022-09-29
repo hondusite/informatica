@@ -30,3 +30,17 @@ var colors = ['#1a81ac'];
 var random_color = colors[Math.floor(Math.random() * colors.length)];
 document.querySelector('.tagcloud').style.color = random_color;
 document.querySelector('.tagcloud').style.fontSize='1.4em';
+
+$('.thumbnail').click(function(){
+	$('.modal-body').empty();
+	$($(this).parents('div').html()).appendTo('.modal-body');
+	$('#modal').modal({show:true});
+});
+
+$('#modal').on('show.bs.modal', function () {
+   $('.col-6,.row .thumbnail').addClass('blur');
+})
+
+$('#modal').on('hide.bs.modal', function () {
+   $('.col-6,.row .thumbnail').removeClass('blur');
+})
