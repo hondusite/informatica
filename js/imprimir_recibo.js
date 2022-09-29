@@ -1,0 +1,6 @@
+
+function imprimir()
+{
+	$("#area").printArea();
+	
+}
