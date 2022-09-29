@@ -1,21 +1,32 @@
-$(".chosen-select").chosen();
+const myTags = [
+    'Diseño Web', 'Programación', 'Robótica',
+    'Mantenimiento','Python', 'Java', 'git',
+    'Ofimática', 'Boostrap', 'Wordpress',
+    'Cloud', 'Redes','Linux', 'Sistemas operativos',
+];
 
-function ver(fic){
-    fic = fic.split('\\');
-      document.getElementById("nomarchivo").value = fic[fic.length-1];
-      var formData = new FormData($("#formulario")[0]);
-        
-        var ruta = "subirfoto.php";
-        $.ajax({
-            url: ruta,
-            type: "POST",
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function(datos)
-            {
-                $("#respuesta").html(datos);
-            }
-        });
+var tagCloud = TagCloud('.tagcloud', myTags,{
 
-}
+  // radius in px
+  radius: 200,
+
+  // animation speed
+  // slow, normal, fast
+  maxSpeed: 'normal',
+  initSpeed: 'slow',
+
+  // 0 = top
+  // 90 = left
+  // 135 = right-bottom
+  direction: 135,
+  
+  // interact with cursor move on mouse out
+  keep: true
+  
+});
+
+//To change the color of text randomly
+var colors = ['#1a81ac'];
+var random_color = colors[Math.floor(Math.random() * colors.length)];
+document.querySelector('.tagcloud').style.color = random_color;
+document.querySelector('.tagcloud').style.fontSize='1.4em';
